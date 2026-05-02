@@ -16,3 +16,6 @@
 [submodule "mcp/crawl4ai"]
 	path = mcp/crawl4ai
 	url = /Users/qiuyuxun/projects/crawl4ai-openclaw
+[submodule "tools/intent-router"]
+	path = tools/intent-router
+	url = /Users/qiuyuxun/projects/openclaw-intent-router
