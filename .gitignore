@@ -1,7 +1,94 @@
-# local-only state
+# macOS
 .DS_Store
-*.bak.*
-*.log
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
 
-# do not track openclaw runtime state if anyone clones into the same dir tree
+# Editors / IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.code-workspace
+
+# Secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.crt
+credentials*.json
+secrets*.json
+service-account*.json
+
+# OpenClaw runtime state
 **/.openclaw/openclaw.json.bak.*
+**/.openclaw/cache/
+**/.openclaw/sessions/
+**/.openclaw/state/
+
+# Backups / scratch
+*.bak
+*.bak.*
+*.orig
+*.rej
+*.tmp
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+
+# Node / Bun
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.turbo/
+
+# Databases (local sqlite stores)
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Misc local-only
+*.pid
+*.sock
+*.local
+
+# Local-only project not yet vendored as a submodule
+tools/openclaw-tui-enhanced/

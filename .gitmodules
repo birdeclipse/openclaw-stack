@@ -1,21 +1,21 @@
 [submodule "workflows/research-watch"]
 	path = workflows/research-watch
-	url = /Users/qiuyuxun/projects/openclaw-research-watch
+	url = https://github.com/birdeclipse/openclaw-research-watch.git
 [submodule "tools/chat"]
 	path = tools/chat
-	url = /Users/qiuyuxun/projects/openclaw-chat
+	url = https://github.com/birdeclipse/openclaw-chat.git
 [submodule "tools/trim-tools"]
 	path = tools/trim-tools
-	url = /Users/qiuyuxun/projects/openclaw-trim-tools
+	url = https://github.com/birdeclipse/openclaw-trim-tools.git
 [submodule "docs/awesome-openclaw-agents"]
 	path = docs/awesome-openclaw-agents
 	url = https://github.com/mergisi/awesome-openclaw-agents.git
 [submodule "skill-vault"]
 	path = skill-vault
-	url = /Users/qiuyuxun/projects/SKILL_VAULT
+	url = https://github.com/birdeclipse/openclaw-skill-vault.git
 [submodule "mcp/crawl4ai"]
 	path = mcp/crawl4ai
-	url = /Users/qiuyuxun/projects/crawl4ai-openclaw
+	url = https://github.com/birdeclipse/openclaw-crawl4ai.git
 [submodule "tools/intent-router"]
 	path = tools/intent-router
-	url = /Users/qiuyuxun/projects/openclaw-intent-router
+	url = https://github.com/birdeclipse/openclaw-intent-router.git
