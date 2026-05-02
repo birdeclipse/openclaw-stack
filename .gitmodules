@@ -13,3 +13,6 @@
 [submodule "skill-vault"]
 	path = skill-vault
 	url = /Users/qiuyuxun/projects/SKILL_VAULT
+[submodule "mcp/crawl4ai"]
+	path = mcp/crawl4ai
+	url = /Users/qiuyuxun/projects/crawl4ai-openclaw
