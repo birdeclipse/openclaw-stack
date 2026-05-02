@@ -1,0 +1,7 @@
+# local-only state
+.DS_Store
+*.bak.*
+*.log
+
+# do not track openclaw runtime state if anyone clones into the same dir tree
+**/.openclaw/openclaw.json.bak.*

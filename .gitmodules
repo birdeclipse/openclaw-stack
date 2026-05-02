@@ -1,0 +1,15 @@
+[submodule "workflows/research-watch"]
+	path = workflows/research-watch
+	url = /Users/qiuyuxun/projects/openclaw-research-watch
+[submodule "tools/chat"]
+	path = tools/chat
+	url = /Users/qiuyuxun/projects/openclaw-chat
+[submodule "tools/trim-tools"]
+	path = tools/trim-tools
+	url = /Users/qiuyuxun/projects/openclaw-trim-tools
+[submodule "docs/awesome-openclaw-agents"]
+	path = docs/awesome-openclaw-agents
+	url = https://github.com/mergisi/awesome-openclaw-agents.git
+[submodule "skill-vault"]
+	path = skill-vault
+	url = /Users/qiuyuxun/projects/SKILL_VAULT

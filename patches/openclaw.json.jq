@@ -1,0 +1,49 @@
+# patches/openclaw.json.jq
+#
+# Declarative jq patch consolidating every openclaw.json mutation that the
+# stack's components used to make ad-hoc inside their own install scripts.
+#
+# Apply via:
+#   jq -f patches/openclaw.json.jq ~/.openclaw/openclaw.json > /tmp/oc.json \
+#     && mv ~/.openclaw/openclaw.json ~/.openclaw/openclaw.json.bak \
+#     && mv /tmp/oc.json ~/.openclaw/openclaw.json
+#
+# Idempotent: every mutation uses `unique` / null-coalescing so re-running
+# the same patch is a no-op.
+#
+# Inputs (set as jq --arg before applying):
+#   STACK_ROOT  absolute path to the openclaw-stack checkout
+
+# 1) Register research-watch hooks dir under hooks.internal.load.extraDirs.
+.hooks                                  = (.hooks // {})
+| .hooks.internal                       = (.hooks.internal // {})
+| .hooks.internal.load                  = (.hooks.internal.load // {})
+| .hooks.internal.load.extraDirs        = (
+    ((.hooks.internal.load.extraDirs // []) +
+     [($STACK_ROOT + "/workflows/research-watch/hooks")]) | unique)
+
+# 2) Ensure agents.list[0].tools.alsoAllow contains the plugins research-watch
+#    relies on. Downgrade any restrictive `allow` to `alsoAllow` (legacy fix).
+| .agents                               = (.agents // {})
+| .agents.list                          = (.agents.list // [])
+| (
+    if (.agents.list | length) == 0 then
+      .agents.list = [{
+        "id": "main",
+        "tools": {"alsoAllow": ["lobster", "llm-task"]}
+      }]
+    else
+      .agents.list[0].tools                = (.agents.list[0].tools // {})
+      | .agents.list[0].tools.alsoAllow    = (
+          ((.agents.list[0].tools.alsoAllow // []) +
+           ["lobster", "llm-task"]) | unique)
+      | (
+          if (.agents.list[0].tools.allow // null) != null then
+            .agents.list[0].tools.alsoAllow = (
+              (.agents.list[0].tools.alsoAllow + .agents.list[0].tools.allow)
+              | unique)
+            | del(.agents.list[0].tools.allow)
+          else . end
+        )
+    end
+  )
